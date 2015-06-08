@@ -28,20 +28,45 @@
  *  OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  *  ************************************************************************************
- *  
- */ 
+ *
+ */
 
 #include "ofxShaderObj.h"
+
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <functional>
+#include <cctype>
+#include <locale>
+
+// trim from start
+static inline string &ltrim(string &s) {
+    s.erase(s.begin(), find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace))));
+    return s;
+}
+
+// trim from end
+static inline string &rtrim(string &s) {
+    s.erase(find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(), s.end());
+    return s;
+}
+static inline string &trim(string &s);
+// trim from both ends
+static inline string &trim(string &s) {
+    return ltrim(rtrim(s));
+}
 
 ofxShaderObj::ofxShaderObj():nTextures(0){
     // Simple effect just need this three variables
     // For something more complex that require another structure, logic or more shaders working together
     // think on making a new stand-alone class as the ofxBlur, ofxFluid, ofxGlow, etc ...
     // Collaborations are welcome
-    
+
     passes = 1;                 // Number of itinerations needs. Default it´s 1;
-    internalFormat = GL_RGBA;   // Tipe of GL textures 
-    
+    internalFormat = GL_RGBA;   // Tipe of GL textures
+
     // And the fragSahder it self. Note that are defaul variables:
     //
     // - time
@@ -49,12 +74,12 @@ ofxShaderObj::ofxShaderObj():nTextures(0){
     // - resolution
     // - backbuffer texture
     // - tex0, tex1, tex2, ... : this are dynamicaly defined and allocated and can be
-    //   filled with information by using .begin(0) and .end(0), or .begin(1) and .end(1), etc 
+    //   filled with information by using .begin(0) and .end(0), or .begin(1) and .end(1), etc
     //
     // This dafault shader it's timer made of a mix on Ricardo Caballero's webGL Sandbox
     // http://mrdoob.com/projects/glsl_sandbox/
     //
-    
+
     fragmentShader = "\n\
 // \n\
 // Empty Shader Patch for ofxComposer \n\
@@ -80,7 +105,7 @@ void main( void ){\n\
     \n\
     gl_FragColor = vec4( color.rgb, color.a );\n\
 }\n";
-    
+
     vertexShader = "void main(){\n\
 \n\
 gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;\n\
@@ -101,7 +126,7 @@ ofxShaderObj& ofxShaderObj::operator =(ofxShaderObj& parent){
     fragmentShader = parent.getFragmentShader();
     ofVec2f resolution = parent.getResolution();
     allocate(resolution.x, resolution.y);
-    
+
     return * this;
 }
 
@@ -109,88 +134,99 @@ ofxShaderObj& ofxShaderObj::operator =(ofxShaderObj& parent){
 void ofxShaderObj::allocate(int _width, int _height, int _internalFormat){
     width = _width;
     height = _height;
-    
+
     if (_internalFormat != -1)
         internalFormat = _internalFormat;
-    
+
     pingPong.allocate(width, height, internalFormat);
     doFragmentShader();
 };
 
 bool ofxShaderObj::setFragmentShader(string _fragShader){
     bool loaded = false;
-    
+
     if ( fragmentShader != _fragShader ){
-        
+
         ofShader test;
         test.setupShaderFromSource(GL_FRAGMENT_SHADER, _fragShader);
         bFine = test.linkProgram();
-        
+
         if( bFine ){
             fragmentShader = _fragShader;
+            doFragmentUniforms();
+
             loaded = doFragmentShader();
+
         }
     }
-    
+
     return loaded;
 }
 
 /*
 bool ofxShaderObj::setVertexShader(string _vertShader){
     bool loaded = false;
-    
+
     if ( vertexShader != _vertShader ){
-        
+
         ofShader test;
         test.setupShaderFromSource(GL_VERTEX_SHADER, _vertShader);
         bFine = test.linkProgram();
-        
+
         if( bFine ){
             vertexShader = _vertShader;
             loaded = doFragmentShader();
         }
     }
-    
+
     return loaded;
 }*/
 
 // A simplified way of filling the insides texture
-void ofxShaderObj::setTexture(ofTexture& tex, int _texNum){ 
+void ofxShaderObj::setTexture(ofTexture& tex, int _texNum){
     if ((_texNum < nTextures) && ( _texNum >= 0)){
-        textures[_texNum].begin(); 
+        textures[_texNum].begin();
         ofClear(0,255);
         ofSetColor(255);
-        tex.draw(0,0); 
+        tex.draw(0,0);
         textures[_texNum].end();
     }
 };
 
-
+void ofxShaderObj::setTexture(ofTexture& tex, int _texNum,ofVec2f offset,ofVec2f size){
+    if ((_texNum < nTextures) && ( _texNum >= 0)){
+        textures[_texNum].begin();
+        ofClear(0,255);
+        ofSetColor(255);
+        tex.draw(offset.x,offset.y,size.x,size.y);
+        textures[_texNum].end();
+    }
+};
 // ---------------------------------------------------------- LOOPS
 //
 // As most objects on openFrameworks, ofxShaderObj have to be updated() in order to process the information on the GPU
 void ofxShaderObj::update(){
-    
+
     // This process it´s going to be repited as many times as passes variable said
     for(int i = 0; i < passes; i++) {
-        
+
         // All the process it´s done on the pingPong ofxSwapBuffer ( basicaly two ofFbo that have a swap() funtion )
         pingPong.dst->begin();
-        
+
         ofClear(0);
         shader.begin();
-        
+
         // The other ofFbo of the ofxSwapBuffer can be access by calling the unicode "backbuffer"
         shader.setUniformTexture("backbuffer", pingPong.src->getTextureReference(), 0 );
-        
+
         // All the needed textures are provided to the shader by this loop
         for( int i = 0; i < nTextures; i++){
-            string texName = "tex" + ofToString(i); 
+            string texName = "tex" + ofToString(i);
             shader.setUniformTexture(texName.c_str(), textures[i].getTextureReference(), i+1 );
-            string texRes = "size" + ofToString(i); 
+            string texRes = "size" + ofToString(i);
             shader.setUniform2f(texRes.c_str() , (float)textures[i].getWidth(), (float)textures[i].getHeight());
         }
-        
+
         // Also there are some standar variables that are passes to the shaders
         // this ones follows the standar used by Ricardo Caballero´s webGL Sandbox
         // http://mrdoob.com/projects/glsl_sandbox/ and ShaderToy by Inigo Quilez http://www.iquilezles.org/apps/shadertoy/
@@ -201,22 +237,26 @@ void ofxShaderObj::update(){
         shader.setUniform2f("screen", (float)ofGetScreenWidth(), (float)ofGetScreenHeight());
         shader.setUniform2f("mouse", (float)ofGetMouseX(), (float)ofGetMouseY());
         shader.setUniform1f("time", (float)ofGetElapsedTimef() );
-        
-        // doFrame() it´s a built-in funtion of ofxShaderObj that only draw a white box in order to 
+        shader.setUniform1i("pass", i );
+
+        for(int i=0;i<unis_params.size();i++)
+            shader.setUniform1f(unis_names[i], *unis_params[i] );
+
+        // doFrame() it´s a built-in funtion of ofxShaderObj that only draw a white box in order to
         // funtion as a frame here the textures could rest.
         // If you want to distort the points of a textures, probably you want to re-define the renderFrame funtion.
         renderFrame();
-        
+
         shader.end();
-        
+
         pingPong.dst->end();
-        
+
         pingPong.swap();    // Swap the ofFbo's. Now dst it's src and src its dst
     }
-    
-    pingPong.swap();        // After the loop the render information will be at the src ofFbo of the ofxSwapBuffer 
+
+    pingPong.swap();        // After the loop the render information will be at the src ofFbo of the ofxSwapBuffer
                             // this extra swap() call will put it on the dst one. Witch sounds more reasonable... isn´t?
-    
+
     //time += 1.0/ofGetFrameRate();   // here it´s where the time it´s updated.
 };
 
@@ -224,16 +264,60 @@ void ofxShaderObj::update(){
 void ofxShaderObj::draw(int x, int y, float _width, float _height){
     if (_width == -1) _width = width;
     if (_height == -1) _height = height;
-    
+
     ofPushStyle();
     ofEnableAlphaBlending();
     pingPong.dst->draw(x, y, _width, _height);
     ofPopStyle();
+
 }
 
 
 // ---------------------------------------------------------------------- ACTIONS
 //
+
+void ofxShaderObj::doFragmentUniforms(){
+
+    unis_params.clear();
+    unis_names.clear();
+
+    int i,j;
+    i = 0; j=0;
+    string searchFor = "uni_";
+    int maxi = fragmentShader.find("main");
+    int c=0;
+    while(i!=-1)
+    {
+        i = fragmentShader.find(searchFor,i);
+        if (i!= -1)
+        {
+
+            if(i<maxi)
+            {
+                j = fragmentShader.find(";",i);
+//                cout << i <<","<<j<< endl;
+                string uni_name = fragmentShader.substr(i,j-i);
+//                cout << uni_name << endl;
+                int k = fragmentShader.find("<",j);
+                float min = ofToFloat(fragmentShader.substr(j+3,k-j-3));
+                j = fragmentShader.find("\n",k);
+                float max = ofToFloat(fragmentShader.substr(k+1,j-k-1));
+//                cout << min << "," << max << endl;
+
+                unis_names.push_back(uni_name);
+                ofParameter<float>* param=new ofParameter<float>();
+                param->set(uni_name.substr(4,uni_name.size()-4),min,min,max);
+                unis_params.push_back(param);
+                c++;
+                i++;
+            }else{
+                break;
+            }
+        }
+    }
+
+}
+
 bool ofxShaderObj::doFragmentShader(){
     // Looks how many textures it´s need on the injected fragment shader
     int num = 0;
@@ -241,10 +325,10 @@ bool ofxShaderObj::doFragmentShader(){
         string searchFor = "tex" + ofToString(i);
         if ( fragmentShader.find(searchFor)!= -1)
             num++;
-        else 
+        else
             break;
     }
-    
+
     // Check if it´s the same number of tectures already created and allocated
     if ( num != nTextures ){
         // If the number of textures it´s different
@@ -260,13 +344,13 @@ bool ofxShaderObj::doFragmentShader(){
         } else if ( nTextures == 0 ){
             textures = NULL;
         }
-        
+
         // In any case it will allocate the total amount of textures with the internalFormat need
         for( int i = 0; i < nTextures; i++){
             doFbo(textures[i], width, height, internalFormat);
         }
     }
-    
+
     //bool loaded;
     // Compile the shader and loadit to the GPU
     shader.unload();
@@ -289,14 +373,14 @@ void ofxShaderObj::doFbo(ofFbo & _fbo, int _width, int _height, int _internalfor
 void ofxShaderObj::renderFrame(float _width, float _height){
     if (_width == -1) _width = width;
     if (_height == -1) _height = height;
-    
+
     // If it´s not well compiled it will show an image little more gray.
     //
     if (bFine)
-        ofSetColor(255,255);  
+        ofSetColor(255,255);
     else
-        ofSetColor(150,255);
-    
+        ofSetColor(255,255);
+
     glBegin(GL_QUADS);
     glTexCoord2f(0, 0); glVertex3f(0, 0, 0);
     glTexCoord2f(_width, 0); glVertex3f(_width, 0, 0);

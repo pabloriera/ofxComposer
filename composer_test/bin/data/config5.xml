@@ -1,0 +1,53 @@
+<web />
+<general>
+    <fullscreen>0</fullscreen>
+    <width>640</width>
+    <height>480</height>
+</general>
+<surface>
+    <id>0</id>
+    <type>ofShader</type>
+    <path>/home/miles/Software/of_v0.8.4_linux64_release/apps/myApps/composer_test/bin/data/circle.fs</path>
+    <visible>1</visible>
+    <format>6408</format>
+    <passes>1</passes>
+    <texture>
+        <point>
+            <x>193.240219116</x>
+            <y>175.081604004</y>
+        </point>
+        <point>
+            <x>824.558410645</x>
+            <y>175.080444336</y>
+        </point>
+        <point>
+            <x>824.558837891</x>
+            <y>648.569458008</y>
+        </point>
+        <point>
+            <x>193.240707397</x>
+            <y>648.569763184</y>
+        </point>
+    </texture>
+    <mask>
+        <point>
+            <x>0.000000000</x>
+            <y>0.000000000</y>
+        </point>
+        <point>
+            <x>1.000000000</x>
+            <y>0.000000000</y>
+        </point>
+        <point>
+            <x>1.000000000</x>
+            <y>1.000000000</y>
+        </point>
+        <point>
+            <x>0.000000000</x>
+            <y>1.000000000</y>
+        </point>
+    </mask>
+    <out>
+        <active>1</active>
+    </out>
+</surface>

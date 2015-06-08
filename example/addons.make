@@ -1,3 +1,0 @@
-ofxGLEditor
-ofxComposer
-ofxXmlSettings

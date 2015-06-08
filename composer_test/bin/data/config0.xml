@@ -1,0 +1,53 @@
+<web />
+<general>
+    <fullscreen>0</fullscreen>
+    <width>640</width>
+    <height>480</height>
+</general>
+<surface>
+    <id>0</id>
+    <type>ofShader</type>
+    <path>/home/miles/Software/of_v0.8.4_linux64_release/apps/myApps/composer_test/bin/data/scope2.fs</path>
+    <visible>0</visible>
+    <format>6408</format>
+    <passes>2</passes>
+    <texture>
+        <point>
+            <x>257.420410156</x>
+            <y>184.552795410</y>
+        </point>
+        <point>
+            <x>957.792968750</x>
+            <y>184.552185059</y>
+        </point>
+        <point>
+            <x>957.793457031</x>
+            <y>643.568420410</y>
+        </point>
+        <point>
+            <x>257.420959473</x>
+            <y>643.568481445</y>
+        </point>
+    </texture>
+    <mask>
+        <point>
+            <x>0.000000000</x>
+            <y>0.000000000</y>
+        </point>
+        <point>
+            <x>1.000000000</x>
+            <y>0.000000000</y>
+        </point>
+        <point>
+            <x>1.000000000</x>
+            <y>1.000000000</y>
+        </point>
+        <point>
+            <x>0.000000000</x>
+            <y>1.000000000</y>
+        </point>
+    </mask>
+    <out>
+        <active>1</active>
+    </out>
+</surface>

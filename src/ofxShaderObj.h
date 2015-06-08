@@ -28,8 +28,8 @@
  *  OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  *  ************************************************************************************
- *  
- */   
+ *
+ */
 
 #ifndef OFXSHADEROBJ
 #define OFXSHADEROBJ
@@ -40,23 +40,24 @@
 
 class ofxShaderObj{
 public:
-    
+
     ofxShaderObj();
     ~ofxShaderObj();
 
     void allocate(int _width, int _height, int _internalFormat = -1);;
-    
+
     ofxShaderObj& operator =(ofxShaderObj& parent);
     ofxShaderObj& operator >>(ofxShaderObj& parent) { parent.setTexture( getTextureReference() ); return * this;};
     ofxShaderObj& operator <<(ofxShaderObj& parent){ setTexture( parent.getTextureReference() ); return * this;};
     ofTexture&  operator[](int _nText){ if ((_nText < nTextures) && (_nText >= 0) ) return textures[_nText].getTextureReference(); };
-    
+
     bool        setFragmentShader(string _fragShader);
     //bool        setVertexShader(string _vertShader);
     void        setPasses(int _passes) { passes = _passes; };
     void        setInternalFormat(int _internalFormat) { internalFormat = _internalFormat; doFragmentShader(); };
+    void        setTexture(ofTexture& tex, int _texNum,ofVec2f offset,ofVec2f size);
     void        setTexture(ofTexture& tex, int _texNum = 0);
-    
+
     string      getFragmentShader() const { return fragmentShader; };
     //string      getVertexShader() const { return vertexShader;};
     int         getPasses() const { return passes; };
@@ -64,20 +65,25 @@ public:
     int         getNumberOfTextures() const { return nTextures; };
     ofVec2f     getResolution() const { return ofVec2f(width,height);};
     ofTexture&  getTextureReference() const { return pingPong.dst->getTextureReference(); };
-    
+
     bool        isOk() const{ return bFine; };
-    
-    void        clear(){ pingPong.clear(); } 
-    
+
+    void        clear(){ pingPong.clear(); }
+
     void        update();
     void        draw(int x = 0, int y = 0, float _width = -1, float _height = -1);
-    
+
+    vector<string> unis_names;
+    vector<ofParameter<float>*> unis_params;
+
+
 protected:
+    void        doFragmentUniforms();
     bool        doFragmentShader();
     //bool            doVertexShader();
     void        doFbo(ofFbo & _fbo, int _width, int _height, int _internalformat = GL_RGBA );
     void        renderFrame(float _width = -1, float _height = -1);
-    
+
     ofxPingPong pingPong;
     ofFbo       *textures;
     ofShader    shader;
@@ -86,5 +92,15 @@ protected:
     int         nTextures, passes, internalFormat;
     bool        bFine;
 };
+
+//class uniform:
+//{
+//public:
+//    uniform()
+//
+//    string name;
+//    ofx
+//
+//}
 
 #endif

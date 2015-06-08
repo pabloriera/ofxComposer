@@ -10,15 +10,16 @@
 
 ofxTitleBar::ofxTitleBar( ofRectangle* wBox, int* _windowsId ){
     ofAddListener(ofEvents().mousePressed, this, &ofxTitleBar::_mousePressed);
-    
+
     windowsBox = wBox;
     windowsId = _windowsId;
     height = 15;
     letterWidth = 10;
     letterHeight = 12;
     offSetWidth = 5;
-    
+
     addButton( 'x', NULL, PUSH_BUTTON);
+//    addButton( 's', NULL, PUSH_BUTTON);
     addButton( 'r', NULL, PUSH_BUTTON);
 };
 
@@ -37,21 +38,21 @@ void ofxTitleBar::draw(){
     tittleBox.height = height;
     tittleBox.x = windowsBox->x;
     tittleBox.y = windowsBox->y - height;
-    
+
     ofPushStyle();
-    
+
     // Draw the Bar
     //
     ofFill();
     ofSetColor(0,50);
     ofRect(tittleBox);
-    
+
     // Draw the tittle
     //
     ofFill();
     ofSetColor(230);
     ofDrawBitmapString(title, tittleBox.x + tittleBox.width - title.size() * 8, tittleBox.y + letterHeight);
-    
+
     // Draw the bottoms
     //
     string buttonString;
@@ -61,7 +62,7 @@ void ofxTitleBar::draw(){
             if ((*buttons[i].state) == true)
                 ofSetColor(255);
         }
-        
+
         ofDrawBitmapString( ofToString(buttons[i].letter) , tittleBox.x + offSetWidth + i*letterWidth, tittleBox.y + letterHeight);
     }
     ofPopStyle();
