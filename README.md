@@ -1,14 +1,12 @@
 <iframe src="http://player.vimeo.com/video/38858952?autoplay=1" width="575" height="359" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 
 [This addons idea](https://github.com/patriciogonzalezvivo/ofxComposer) came up together with [James George](http://www.jamesgeorge.org/) at Detroit´s oF DevCon 2012. It consist on a set of connecting boxes that let you load and processes different type of data on the GPU. 
-It´s designed to be flexible and visualy minimalist for quick editing on life performances. Also it's very handy for graphical debugging, editing GLSL Shaders on the fly, and as a `ofxGui` complement . 
+It´s designed to be flexible and visualy minimalist for quick editing on life performances. Also it's very handy for graphical debugging, editing GLSL Shaders on the fly, and as a `ofxGui` complement. 
+
+When using shaders, if you set the uniforms with the following pattern uni_NAME, they will be assigned with a fader in the GUI and they will also receive OSC messages by default, to  /ofxComposer/shader.fs/NAME
 
 # Installing
-Clone [this addon repository](https://github.com/patriciogonzalezvivo/ofxComposer) into your `openFrameworks/addons` together with Akira´s [ofxGLEditor](https://github.com/Akira-Hayasaka/ofxGLEditor):
-
-	cd openFrameworks/addons
-	git clone https://github.com/patriciogonzalezvivo/ofxPulseSensor
-	git clone https://github.com/Akira-Hayasaka/ofxGLEditor
+Clone [this addon repository](https://github.com/patriciogonzalezvivo/ofxComposer) into your `openFrameworks/addons`
 
 ## Use
 
