@@ -1,6 +1,6 @@
 === ofxComposer ===
 
-Original addon (https://github.com/patriciogonzalezvivo/ofxComposer).
+Fork from original addon (https://github.com/patriciogonzalezvivo/ofxComposer).
 
 This versión has been improved with several stuff.
 
