@@ -412,7 +412,7 @@ void ofxComposer::_keyPressed(ofKeyEventArgs &e){
 
         if (res.bSuccess)
         {
-            string fpath = res.filePath;
+            string fpath = res.getPath();
             convertWindowsToUnixPath(fpath);
             cout << fpath << endl;
             addPatchFromFile(fpath,ofPoint(ofGetMouseX(),ofGetMouseY()));
@@ -431,11 +431,11 @@ void ofxComposer::_keyPressed(ofKeyEventArgs &e){
 
     } else if (e.key == 'l'){
 
-        ofFileDialogResult res = ofSystemLoadDialog("Load patch source", false, "./bin/data");
+        ofFileDialogResult res = ofSystemLoadDialog("Load patch source", false, "./bin/data/data");
 
         if (res.bSuccess)
         {
-            string fpath = res.filePath;
+            string fpath = res.getPath();
             convertWindowsToUnixPath(fpath);
             cout << fpath << endl;
 
@@ -444,6 +444,7 @@ void ofxComposer::_keyPressed(ofKeyEventArgs &e){
 //                ofBuffer buffer = ofBufferFromFile(fpath);
 //                string code = buffer.getText();
                 patches[selectedID]->loadFile(fpath,"none");
+                patches[selectedID]->saveSettings();
 //                patches[selectedID]->setFrag(code);
 //            }
         }

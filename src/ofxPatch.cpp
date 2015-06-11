@@ -1065,7 +1065,8 @@ bool ofxPatch::loadFile(string _filePath, string _configFile){
 
     ofFile file = ofFile(_filePath);
 
-    filePath = file.getAbsolutePath();
+//    filePath = file.getAbsolutePath();
+    filePath = file.getFileName();
     string ext = file.getExtension();
 
     // Load General setup variables

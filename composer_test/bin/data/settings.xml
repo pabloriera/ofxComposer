@@ -1,7 +1,7 @@
 <ofComposer>
 	<ofComposer/>
 <blur.fs>
-		<passes>1</passes>
+		<passes>20</passes>
 	</blur.fs>
 <group/>
 </ofComposer>
