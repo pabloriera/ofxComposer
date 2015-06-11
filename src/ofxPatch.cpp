@@ -135,6 +135,10 @@ void ofxPatch::doParameters()
     cout << name << endl;
     for(int i =0;i<shader->unis_params.size();i++)
         patchParameters.add( *(shader->unis_params[i]) );
+
+    baseParameters.clear();
+    baseParameters.setName(name);
+    baseParameters.add( shader->passes );
  }
 
 

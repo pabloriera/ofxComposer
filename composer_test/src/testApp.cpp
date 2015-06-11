@@ -7,15 +7,14 @@ void testApp::setup(){
     ofSetFrameRate(60);
     ofSetVerticalSync(false);
 
-    composer.load("config1.xml");
+    composer.load("config0.xml");
 
 }
 
 //-------------------------------------------------------------- LOOP
 void testApp::update(){
-    if(composer.bPlay)
-        composer.update();
 
+    composer.update();
     ofSetWindowTitle( ofToString( ofGetFrameRate()));
 }
 
@@ -24,8 +23,7 @@ void testApp::draw(){
     ofBackgroundGradient(ofColor::gray, ofColor::black);
     ofBackground(ofColor::black);
     ofSetColor(255,255);
-    if(composer.bPlay)
-        composer.draw();
+    composer.draw();
 }
 
 

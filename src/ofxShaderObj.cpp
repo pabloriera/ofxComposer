@@ -64,6 +64,7 @@ ofxShaderObj::ofxShaderObj():nTextures(0){
     // think on making a new stand-alone class as the ofxBlur, ofxFluid, ofxGlow, etc ...
     // Collaborations are welcome
 
+    passes.set("passes",1,1,20);
     passes = 1;                 // Number of itinerations needs. Default it´s 1;
     internalFormat = GL_RGBA;   // Tipe of GL textures
 

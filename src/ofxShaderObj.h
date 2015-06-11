@@ -75,7 +75,7 @@ public:
 
     vector<string> unis_names;
     vector<ofParameter<float>*> unis_params;
-
+    ofParameter<int> passes;
 
 protected:
     void        doFragmentUniforms();
@@ -89,7 +89,8 @@ protected:
     ofShader    shader;
     string      fragmentShader, vertexShader;
     float       width, height;//, time;
-    int         nTextures, passes, internalFormat;
+    int         nTextures, internalFormat;
+
     bool        bFine;
 };
 

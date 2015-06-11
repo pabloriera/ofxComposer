@@ -87,7 +87,10 @@ public:
     bool            bEditMask;
     bool            bVisible;
     string          name;
+
     ofParameterGroup patchParameters;
+    ofParameterGroup baseParameters;
+
     float speed;
 private:
     void            doCornersToPosSize();
@@ -160,3 +163,4 @@ private:
 };
 
 #endif
+

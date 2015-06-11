@@ -92,8 +92,11 @@ void ofxComposer::addParameters()
     gui.saveToFile("settings.xml");
     parameters.clear();
     for(map<int,ofxPatch*>::iterator it = patches.begin(); it != patches.end(); it++ ){
-
-        parameters.add(it->second->patchParameters);
+        if(it->second->getType()=="ofShader")
+        {
+            parameters.add(it->second->patchParameters);
+            parameters.add(it->second->baseParameters);
+        }
     }
     gui.refresh(parameters);
     gui.loadFromFile("settings.xml");

@@ -7,26 +7,26 @@
 <surface>
     <id>0</id>
     <type>ofShader</type>
-    <path>/home/miles/Software/of_v0.8.4_linux64_release/apps/myApps/composer_test/bin/data/scope2.fs</path>
+    <path>/home/miles/Software/of_v0.8.4_linux64_release/addons/ofxComposer/composer_test/bin/data/blur.fs</path>
     <visible>0</visible>
     <format>6408</format>
-    <passes>2</passes>
+    <passes>20</passes>
     <texture>
         <point>
-            <x>257.420410156</x>
-            <y>184.552795410</y>
+            <x>382.601501465</x>
+            <y>160.452072144</y>
         </point>
         <point>
-            <x>957.792968750</x>
-            <y>184.552185059</y>
+            <x>796.663330078</x>
+            <y>160.450210571</y>
         </point>
         <point>
-            <x>957.793457031</x>
-            <y>643.568420410</y>
+            <x>796.664550781</x>
+            <y>470.997863770</y>
         </point>
         <point>
-            <x>257.420959473</x>
-            <y>643.568481445</y>
+            <x>382.602233887</x>
+            <y>470.997070312</y>
         </point>
     </texture>
     <mask>
@@ -49,5 +49,54 @@
     </mask>
     <out>
         <active>1</active>
+    </out>
+</surface>
+<surface>
+    <id>1</id>
+    <type>ofImage</type>
+    <path>/home/miles/Software/of_v0.8.4_linux64_release/addons/ofxComposer/composer_test/bin/data/134625-gif.jpeg</path>
+    <visible>1</visible>
+    <texture>
+        <point>
+            <x>68.232635498</x>
+            <y>219.299011230</y>
+        </point>
+        <point>
+            <x>207.591674805</x>
+            <y>219.299072266</y>
+        </point>
+        <point>
+            <x>207.592041016</x>
+            <y>399.118103027</y>
+        </point>
+        <point>
+            <x>68.232147217</x>
+            <y>399.118041992</y>
+        </point>
+    </texture>
+    <mask>
+        <point>
+            <x>0.000000000</x>
+            <y>0.000000000</y>
+        </point>
+        <point>
+            <x>1.000000000</x>
+            <y>0.000000000</y>
+        </point>
+        <point>
+            <x>1.000000000</x>
+            <y>1.000000000</y>
+        </point>
+        <point>
+            <x>0.000000000</x>
+            <y>1.000000000</y>
+        </point>
+    </mask>
+    <out>
+        <active>1</active>
+        <dot>
+            <to>0</to>
+            <tex>0</tex>
+        </dot>
     </out>
 </surface>

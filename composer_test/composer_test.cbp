@@ -6,7 +6,7 @@
 		<Option makefile_is_custom="1" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="addons/;src/;build config/;addons/ofxKinect/libs/libfreenect/src/;addons/ofxKinect/libs/libusb-1.0/include/libusb-1.0/;addons/ofxGLEditor/src/;addons/ofxKinect/src/;addons/ofxComposer/src/;addons/ofxXmlSettings/libs/;addons/ofxXmlSettings/src/;addons/ofxGLEditor/libs/fontstash/include/;addons/ofxKinect/libs/libfreenect/include/;" />
+		<Option virtualFolders="addons/;src/;build config/;addons/ofxKinect/libs/libfreenect/src/;addons/ofxKinect/libs/libusb-1.0/include/libusb-1.0/;addons/ofxKinect/src/;addons/ofxComposer/src/;addons/ofxXmlSettings/libs/;addons/ofxXmlSettings/src/;addons/ofxKinect/libs/libfreenect/include/;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/$(PROJECT_NAME)_debug" prefix_auto="1" extension_auto="1" />
@@ -27,189 +27,126 @@
 				<Option projectLinkerOptionsRelation="2" />
 			</Target>
 		</Build>
-		<Unit filename="../../../addons/ofxComposer/src/ofxBasePatch.cpp">
-			<Option virtualFolder="addons/ofxComposer/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxComposer/src/ofxBasePatch.h">
-			<Option virtualFolder="addons/ofxComposer/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxComposer/src/ofxComposer.cpp">
-			<Option virtualFolder="addons/ofxComposer/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxComposer/src/ofxComposer.h">
-			<Option virtualFolder="addons/ofxComposer/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxComposer/src/ofxPatch.cpp">
-			<Option virtualFolder="addons/ofxComposer/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxComposer/src/ofxPatch.h">
-			<Option virtualFolder="addons/ofxComposer/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxComposer/src/ofxPingPong.h">
-			<Option virtualFolder="addons/ofxComposer/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxComposer/src/ofxShaderObj.cpp">
-			<Option virtualFolder="addons/ofxComposer/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxComposer/src/ofxShaderObj.h">
-			<Option virtualFolder="addons/ofxComposer/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxComposer/src/ofxTitleBar.cpp">
-			<Option virtualFolder="addons/ofxComposer/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxComposer/src/ofxTitleBar.h">
-			<Option virtualFolder="addons/ofxComposer/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxGLEditor/libs/fontstash/include/fontstash.h">
-			<Option virtualFolder="addons/ofxGLEditor/libs/fontstash/include" />
-		</Unit>
-		<Unit filename="../../../addons/ofxGLEditor/libs/fontstash/include/glfontstash.h">
-			<Option virtualFolder="addons/ofxGLEditor/libs/fontstash/include" />
-		</Unit>
-		<Unit filename="../../../addons/ofxGLEditor/libs/fontstash/include/stb_truetype.h">
-			<Option virtualFolder="addons/ofxGLEditor/libs/fontstash/include" />
-		</Unit>
-		<Unit filename="../../../addons/ofxGLEditor/src/Unicode.cpp">
-			<Option virtualFolder="addons/ofxGLEditor/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxGLEditor/src/Unicode.h">
-			<Option virtualFolder="addons/ofxGLEditor/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxGLEditor/src/ofxEditor.cpp">
-			<Option virtualFolder="addons/ofxGLEditor/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxGLEditor/src/ofxEditor.h">
-			<Option virtualFolder="addons/ofxGLEditor/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxGLEditor/src/ofxEditorColorScheme.cpp">
-			<Option virtualFolder="addons/ofxGLEditor/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxGLEditor/src/ofxEditorColorScheme.h">
-			<Option virtualFolder="addons/ofxGLEditor/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxGLEditor/src/ofxEditorFont.cpp">
-			<Option virtualFolder="addons/ofxGLEditor/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxGLEditor/src/ofxEditorFont.h">
-			<Option virtualFolder="addons/ofxGLEditor/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxGLEditor/src/ofxEditorSettings.cpp">
-			<Option virtualFolder="addons/ofxGLEditor/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxGLEditor/src/ofxEditorSettings.h">
-			<Option virtualFolder="addons/ofxGLEditor/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxGLEditor/src/ofxEditorSyntax.cpp">
-			<Option virtualFolder="addons/ofxGLEditor/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxGLEditor/src/ofxEditorSyntax.h">
-			<Option virtualFolder="addons/ofxGLEditor/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxGLEditor/src/ofxFileDialog.cpp">
-			<Option virtualFolder="addons/ofxGLEditor/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxGLEditor/src/ofxFileDialog.h">
-			<Option virtualFolder="addons/ofxGLEditor/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxGLEditor/src/ofxGLEditor.cpp">
-			<Option virtualFolder="addons/ofxGLEditor/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxGLEditor/src/ofxGLEditor.h">
-			<Option virtualFolder="addons/ofxGLEditor/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxGLEditor/src/ofxRepl.cpp">
-			<Option virtualFolder="addons/ofxGLEditor/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxGLEditor/src/ofxRepl.h">
-			<Option virtualFolder="addons/ofxGLEditor/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxGui/src/ofxBaseGui.cpp" />
-		<Unit filename="../../../addons/ofxGui/src/ofxBaseGui.h" />
-		<Unit filename="../../../addons/ofxGui/src/ofxButton.cpp" />
-		<Unit filename="../../../addons/ofxGui/src/ofxButton.h" />
-		<Unit filename="../../../addons/ofxGui/src/ofxGui.h" />
-		<Unit filename="../../../addons/ofxGui/src/ofxGuiGroup.cpp" />
-		<Unit filename="../../../addons/ofxGui/src/ofxGuiGroup.h" />
-		<Unit filename="../../../addons/ofxGui/src/ofxLabel.cpp" />
-		<Unit filename="../../../addons/ofxGui/src/ofxLabel.h" />
-		<Unit filename="../../../addons/ofxGui/src/ofxPanel.cpp" />
-		<Unit filename="../../../addons/ofxGui/src/ofxPanel.h" />
-		<Unit filename="../../../addons/ofxGui/src/ofxSlider.cpp" />
-		<Unit filename="../../../addons/ofxGui/src/ofxSlider.h" />
-		<Unit filename="../../../addons/ofxGui/src/ofxSliderGroup.cpp" />
-		<Unit filename="../../../addons/ofxGui/src/ofxSliderGroup.h" />
-		<Unit filename="../../../addons/ofxGui/src/ofxToggle.cpp" />
-		<Unit filename="../../../addons/ofxGui/src/ofxToggle.h" />
-		<Unit filename="../../../addons/ofxKinect/libs/libfreenect/include/libfreenect-registration.h">
+		<Unit filename="../../ofxGui/src/ofxBaseGui.cpp" />
+		<Unit filename="../../ofxGui/src/ofxBaseGui.h" />
+		<Unit filename="../../ofxGui/src/ofxButton.cpp" />
+		<Unit filename="../../ofxGui/src/ofxButton.h" />
+		<Unit filename="../../ofxGui/src/ofxGui.h" />
+		<Unit filename="../../ofxGui/src/ofxGuiGroup.cpp" />
+		<Unit filename="../../ofxGui/src/ofxGuiGroup.h" />
+		<Unit filename="../../ofxGui/src/ofxLabel.cpp" />
+		<Unit filename="../../ofxGui/src/ofxLabel.h" />
+		<Unit filename="../../ofxGui/src/ofxPanel.cpp" />
+		<Unit filename="../../ofxGui/src/ofxPanel.h" />
+		<Unit filename="../../ofxGui/src/ofxSlider.cpp" />
+		<Unit filename="../../ofxGui/src/ofxSlider.h" />
+		<Unit filename="../../ofxGui/src/ofxSliderGroup.cpp" />
+		<Unit filename="../../ofxGui/src/ofxSliderGroup.h" />
+		<Unit filename="../../ofxGui/src/ofxToggle.cpp" />
+		<Unit filename="../../ofxGui/src/ofxToggle.h" />
+		<Unit filename="../../ofxKinect/libs/libfreenect/include/libfreenect-registration.h">
 			<Option virtualFolder="addons/ofxKinect/libs/libfreenect/include" />
 		</Unit>
-		<Unit filename="../../../addons/ofxKinect/libs/libfreenect/include/libfreenect.h">
+		<Unit filename="../../ofxKinect/libs/libfreenect/include/libfreenect.h">
 			<Option virtualFolder="addons/ofxKinect/libs/libfreenect/include" />
 		</Unit>
-		<Unit filename="../../../addons/ofxKinect/libs/libfreenect/src/cameras.c">
+		<Unit filename="../../ofxKinect/libs/libfreenect/src/cameras.c">
 			<Option compilerVar="CC" />
 			<Option virtualFolder="addons/ofxKinect/libs/libfreenect/src" />
 		</Unit>
-		<Unit filename="../../../addons/ofxKinect/libs/libfreenect/src/cameras.h">
+		<Unit filename="../../ofxKinect/libs/libfreenect/src/cameras.h">
 			<Option virtualFolder="addons/ofxKinect/libs/libfreenect/src" />
 		</Unit>
-		<Unit filename="../../../addons/ofxKinect/libs/libfreenect/src/core.c">
+		<Unit filename="../../ofxKinect/libs/libfreenect/src/core.c">
 			<Option compilerVar="CC" />
 			<Option virtualFolder="addons/ofxKinect/libs/libfreenect/src" />
 		</Unit>
-		<Unit filename="../../../addons/ofxKinect/libs/libfreenect/src/freenect_internal.h">
+		<Unit filename="../../ofxKinect/libs/libfreenect/src/freenect_internal.h">
 			<Option virtualFolder="addons/ofxKinect/libs/libfreenect/src" />
 		</Unit>
-		<Unit filename="../../../addons/ofxKinect/libs/libfreenect/src/loader.h">
+		<Unit filename="../../ofxKinect/libs/libfreenect/src/loader.h">
 			<Option virtualFolder="addons/ofxKinect/libs/libfreenect/src" />
 		</Unit>
-		<Unit filename="../../../addons/ofxKinect/libs/libfreenect/src/registration.c">
+		<Unit filename="../../ofxKinect/libs/libfreenect/src/registration.c">
 			<Option compilerVar="CC" />
 			<Option virtualFolder="addons/ofxKinect/libs/libfreenect/src" />
 		</Unit>
-		<Unit filename="../../../addons/ofxKinect/libs/libfreenect/src/registration.h">
+		<Unit filename="../../ofxKinect/libs/libfreenect/src/registration.h">
 			<Option virtualFolder="addons/ofxKinect/libs/libfreenect/src" />
 		</Unit>
-		<Unit filename="../../../addons/ofxKinect/libs/libfreenect/src/tilt.c">
+		<Unit filename="../../ofxKinect/libs/libfreenect/src/tilt.c">
 			<Option compilerVar="CC" />
 			<Option virtualFolder="addons/ofxKinect/libs/libfreenect/src" />
 		</Unit>
-		<Unit filename="../../../addons/ofxKinect/libs/libfreenect/src/usb_libusb10.c">
+		<Unit filename="../../ofxKinect/libs/libfreenect/src/usb_libusb10.c">
 			<Option compilerVar="CC" />
 			<Option virtualFolder="addons/ofxKinect/libs/libfreenect/src" />
 		</Unit>
-		<Unit filename="../../../addons/ofxKinect/libs/libfreenect/src/usb_libusb10.h">
+		<Unit filename="../../ofxKinect/libs/libfreenect/src/usb_libusb10.h">
 			<Option virtualFolder="addons/ofxKinect/libs/libfreenect/src" />
 		</Unit>
-		<Unit filename="../../../addons/ofxKinect/libs/libusb-1.0/include/libusb-1.0/libusb.h">
+		<Unit filename="../../ofxKinect/libs/libusb-1.0/include/libusb-1.0/libusb.h">
 			<Option virtualFolder="addons/ofxKinect/libs/libusb-1.0/include/libusb-1.0" />
 		</Unit>
-		<Unit filename="../../../addons/ofxKinect/src/ofxBase3DVideo.h">
+		<Unit filename="../../ofxKinect/src/ofxBase3DVideo.h">
 			<Option virtualFolder="addons/ofxKinect/src" />
 		</Unit>
-		<Unit filename="../../../addons/ofxKinect/src/ofxKinect.cpp">
+		<Unit filename="../../ofxKinect/src/ofxKinect.cpp">
 			<Option virtualFolder="addons/ofxKinect/src" />
 		</Unit>
-		<Unit filename="../../../addons/ofxKinect/src/ofxKinect.h">
+		<Unit filename="../../ofxKinect/src/ofxKinect.h">
 			<Option virtualFolder="addons/ofxKinect/src" />
 		</Unit>
-		<Unit filename="../../../addons/ofxXmlSettings/libs/tinyxml.cpp">
+		<Unit filename="../../ofxXmlSettings/libs/tinyxml.cpp">
 			<Option virtualFolder="addons/ofxXmlSettings/libs" />
 		</Unit>
-		<Unit filename="../../../addons/ofxXmlSettings/libs/tinyxml.h">
+		<Unit filename="../../ofxXmlSettings/libs/tinyxml.h">
 			<Option virtualFolder="addons/ofxXmlSettings/libs" />
 		</Unit>
-		<Unit filename="../../../addons/ofxXmlSettings/libs/tinyxmlerror.cpp">
+		<Unit filename="../../ofxXmlSettings/libs/tinyxmlerror.cpp">
 			<Option virtualFolder="addons/ofxXmlSettings/libs" />
 		</Unit>
-		<Unit filename="../../../addons/ofxXmlSettings/libs/tinyxmlparser.cpp">
+		<Unit filename="../../ofxXmlSettings/libs/tinyxmlparser.cpp">
 			<Option virtualFolder="addons/ofxXmlSettings/libs" />
 		</Unit>
-		<Unit filename="../../../addons/ofxXmlSettings/src/ofxXmlSettings.cpp">
+		<Unit filename="../../ofxXmlSettings/src/ofxXmlSettings.cpp">
 			<Option virtualFolder="addons/ofxXmlSettings/src" />
 		</Unit>
-		<Unit filename="../../../addons/ofxXmlSettings/src/ofxXmlSettings.h">
+		<Unit filename="../../ofxXmlSettings/src/ofxXmlSettings.h">
 			<Option virtualFolder="addons/ofxXmlSettings/src" />
+		</Unit>
+		<Unit filename="../src/ofxBasePatch.cpp">
+			<Option virtualFolder="addons/ofxComposer/src" />
+		</Unit>
+		<Unit filename="../src/ofxBasePatch.h">
+			<Option virtualFolder="addons/ofxComposer/src" />
+		</Unit>
+		<Unit filename="../src/ofxComposer.cpp">
+			<Option virtualFolder="addons/ofxComposer/src" />
+		</Unit>
+		<Unit filename="../src/ofxComposer.h">
+			<Option virtualFolder="addons/ofxComposer/src" />
+		</Unit>
+		<Unit filename="../src/ofxPatch.cpp">
+			<Option virtualFolder="addons/ofxComposer/src" />
+		</Unit>
+		<Unit filename="../src/ofxPatch.h">
+			<Option virtualFolder="addons/ofxComposer/src" />
+		</Unit>
+		<Unit filename="../src/ofxPingPong.h">
+			<Option virtualFolder="addons/ofxComposer/src" />
+		</Unit>
+		<Unit filename="../src/ofxShaderObj.cpp">
+			<Option virtualFolder="addons/ofxComposer/src" />
+		</Unit>
+		<Unit filename="../src/ofxShaderObj.h">
+			<Option virtualFolder="addons/ofxComposer/src" />
+		</Unit>
+		<Unit filename="../src/ofxTitleBar.cpp">
+			<Option virtualFolder="addons/ofxComposer/src" />
+		</Unit>
+		<Unit filename="../src/ofxTitleBar.h">
+			<Option virtualFolder="addons/ofxComposer/src" />
 		</Unit>
 		<Unit filename="config.make">
 			<Option virtualFolder="build config" />
