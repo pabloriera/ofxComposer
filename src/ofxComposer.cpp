@@ -28,13 +28,12 @@ string helpScreen = "\n \
     - F7:   Add Kinect \n \
     - F8:   Turn ON/OFF the fullscreen-mode\n \
     \n \
-
     - c:   Load config file\n \
     - l:   Load patch source\n \
     - p:   Reload patches sources (for refreshing shader on changes)\n \
     - g:   Toggle GUI\n \
     - LEFT ARROW & RIGHT ARROW:   Load next or prev config file \n \
-
+	\n \
     Mouse and Coorners: \n \
     - Left Button Drag:     coorner proportional scale \n \
     - Left Button Drag + R: Rotate Patch\n \
