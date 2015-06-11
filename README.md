@@ -31,3 +31,9 @@ And custom uniforms:
         
 Uniforms defined with uni_NAME//MIN<MAX will appear in the GUI controls.
 
+## TODO
+
+* Auto refresh GUI controls on reloading shaders.
+* Auto reloading shaders on modification (watch file for changes)
+* Check if file exist prior open! Config files and patch sources.
+
