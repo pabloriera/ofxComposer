@@ -11,7 +11,7 @@ This versión has been improved with several stuff.
 
 ## Installation
 
-* Download [[openFrameworks|openframeworks.cc]]
+* Download [openFrameworks](openframeworks.cc)
 * Clone ofxComposer into addons folder
 * Overwrite the openFrameworks/addons/ofxGUI and ofxOsc with the ones in the ofxComposer
 
