@@ -251,7 +251,7 @@ bool ofxOscReceiver::getParameter(ofAbstractParameter & parameter){
 //                        cout << address.size() << endl;
                         if(address.size()>i+1 ){
 //                            cout << address[i+1] <<  endl;
-                            if( static_cast<ofParameterGroup*>(p)->check(address[i+1] ) )
+                            if( static_cast<ofParameterGroup*>(p)->getPosition(address[i+1] )!=-1 )
                             {
 //                                cout << address[i+1]+ " is" << endl;
                                 p = &static_cast<ofParameterGroup*>(p)->get(address[i+1]);
