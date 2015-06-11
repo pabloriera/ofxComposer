@@ -23,10 +23,18 @@ string helpScreen = "\n \
                             - r: reset mask path\n \
     \n \
     - F4:   Reset surface coorners\n \
-    - F5:   Add ofxGLEditor (temporal!!!) and if have it add ofVideoGrabber (temporal!!!)\n \
-    - F6:   Add ofShader (temporal!!!)\n \
-    - F7:   Turn ON/OFF the fullscreen-mode\n \
+    - F5:   Add Camera \n \
+    - F6:   Add Image, Video, Cube File or Shader\n \
+    - F7:   Add Kinect \n \
+    - F8:   Turn ON/OFF the fullscreen-mode\n \
     \n \
+
+    - c:   Load config file\n \
+    - l:   Load patch source\n \
+    - p:   Reload patches sources (for refreshing shader on changes)\n \
+    - g:   Toggle GUI\n \
+    - LEFT ARROW & RIGHT ARROW:   Load next or prev config file \n \
+
     Mouse and Coorners: \n \
     - Left Button Drag:     coorner proportional scale \n \
     - Left Button Drag + R: Rotate Patch\n \
@@ -391,7 +399,7 @@ void ofxComposer::_keyPressed(ofKeyEventArgs &e){
 
         addPatchWithOutFile("ofVideoGrabber", ofPoint(ofGetMouseX(),ofGetMouseY()));
 
-    } else if (e.key == OF_KEY_F8 ){
+    } else if (e.key == OF_KEY_F7 ){
 
         addPatchWithOutFile("ofKinect", ofPoint(ofGetMouseX(),ofGetMouseY()));
 
@@ -416,7 +424,7 @@ void ofxComposer::_keyPressed(ofKeyEventArgs &e){
 //            }
         }
 
-    } else if (e.key == OF_KEY_F7){
+    } else if (e.key == OF_KEY_F8){
         ofToggleFullscreen();
 
     } else if (e.key == 'l'){
@@ -626,3 +634,5 @@ void ofxComposer::_windowResized(ofResizeEventArgs &e){
     editorFbo.end();
 #endif
 }
+
+
