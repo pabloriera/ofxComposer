@@ -71,7 +71,7 @@ ofxComposer::ofxComposer(){
 
     //  Default parameters
     //
-    configFile = "config1.xml";
+    configFile = "config0.xml";
     selectedDot = -1;
     selectedID = -1;
     bEditMode = true;
@@ -79,7 +79,7 @@ ofxComposer::ofxComposer(){
     bHelp = false;
     bGUI = false;
     bPlay = true;
-    fileID = 1;
+    fileID = 0;
 
     parameters.setName("ofComposer");
     gui.setup(parameters);
@@ -303,9 +303,14 @@ void ofxComposer::update(){
 
     sync.update();
 
-    for(map<int,ofxPatch*>::iterator it = patches.begin(); it != patches.end(); it++ ){
-        it->second->update();
+    if(bPlay)
+    {
+        for(map<int,ofxPatch*>::iterator it = patches.begin(); it != patches.end(); it++ ){
+            it->second->update();
+        }
+
     }
+
 
     if ( (bEditMode) && (selectedID >= 0)){
 #ifdef USE_OFXGLEDITOR

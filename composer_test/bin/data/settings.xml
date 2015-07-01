@@ -4,4 +4,24 @@
 		<passes>20</passes>
 	</blur.fs>
 <group/>
+<LUT.fs>
+		<passes>1</passes>
+	</LUT.fs>
+<grayscott.fs>
+		<diffU>0.159184</diffU>
+		<diffV>0.0336735</diffV>
+		<F>0.0118367</F>
+		<K>0.0887755</K>
+		<dt>1.00587</dt>
+		<uov>1</uov>
+		<passes>4</passes>
+	</grayscott.fs>
+	<invert.fs>
+		<c>0</c>
+		<passes>1</passes>
+	</invert.fs>
+<mouse.fs>
+		<r>40.8163</r>
+		<passes>1</passes>
+	</mouse.fs>
 </ofComposer>

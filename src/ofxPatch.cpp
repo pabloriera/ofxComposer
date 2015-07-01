@@ -352,6 +352,7 @@ void ofxPatch::update(){
     for ( int i = 0; i < outPut.size(); i++ ){
         if (outPut[i].toShader != NULL){
             outPut[i].toShader->setTexture( getTextureReference(), outPut[i].nTex ,offset,size);
+//            outPut[i].toShader->setTexture( getTextureReference(), outPut[i].nTex)
         }
     }
 }
@@ -752,10 +753,10 @@ void ofxPatch::_reMakeFrame( int &_nId ){
         textureCorners[2].set(width, offSet);
         textureCorners[3].set(0.0, offSet);
     } else {
-        textureCorners[0].set(0.0, offSet);
-        textureCorners[1].set(width, offSet);
-        textureCorners[2].set(width, height + offSet);
-        textureCorners[3].set(0.0, height + offSet);
+        textureCorners[0].set(textureCorners[0]);
+        textureCorners[1].set(width+textureCorners[0].x, textureCorners[0].y);
+        textureCorners[2].set(width+textureCorners[0].x, height + textureCorners[0].y);
+        textureCorners[3].set(textureCorners[0].x, height +  textureCorners[0].y);
     }
 
     bUpdateCoord = true;
@@ -864,7 +865,7 @@ void ofxPatch::_mouseDragged(ofMouseEventArgs &e){
                     float dif = actualAngle-prevAngle;
 
                     rotate(dif);
-                } else if (( e.button == 1 ) || ofGetKeyPressed('a') ){
+                } else if ( ofGetKeyPressed('a') ){
                     // Centered Scale
                     //
                     float prevDist = mouseLast.distance(getPos());
@@ -873,6 +874,34 @@ void ofxPatch::_mouseDragged(ofMouseEventArgs &e){
                     float dif = actualDist/prevDist;
 
                     scale(dif);
+
+                } else if ( e.button == 1  ){
+
+                    size += mouse-mouseLast;
+
+                    ofPoint _size = ofPoint(textureCorners[1].x - textureCorners[0].x, textureCorners[3].y - textureCorners[0].y);
+                    _size += mouse-mouseLast;
+
+                    textureCorners[0].set(textureCorners[0]);
+                    textureCorners[1].set(_size.x+textureCorners[0].x, textureCorners[0].y);
+                    textureCorners[2].set(_size.x+textureCorners[0].x, _size.y + textureCorners[0].y);
+                    textureCorners[3].set(textureCorners[0].x, _size.y +  textureCorners[0].y);
+
+//                    ofVec2f center = getPos();
+//
+//                    int  opositCorner = (selectedTextureCorner - 2 < 0)? (4+selectedTextureCorner-2) : (selectedTextureCorner-2);
+//                    ofVec2f toOpositCorner = center - textureCorners[opositCorner];
+//
+//                    float prevDist = mouseLast.distance( textureCorners[opositCorner] );
+//                    float actualDist = mouse.distance( textureCorners[opositCorner] );
+//
+//                    float dif = actualDist/prevDist;
+//
+//                    move( textureCorners[opositCorner] + toOpositCorner * dif );
+//                    scale(dif);
+
+                    bUpdateCoord = true;
+
                 } else {
                     // Corner Scale
                     //
@@ -898,19 +927,19 @@ void ofxPatch::_mouseDragged(ofMouseEventArgs &e){
                 }
 
                 bUpdateCoord = true;
-                mouseLast = mouse;
-            } else if ( isOver(mouse) && bActive && e.button == 1 ){
+
+       /*     } else if ( isOver(mouse) && bActive && e.button == 1 ){
 
                 size += mouse-mouseLast;
 
                 bUpdateCoord = true;
                 mouseLast = mouse;
+                */
             } else if ( isOver(mouse) && bActive && e.button == 2 ){
 
                 offset += mouse-mouseLast;
 
                 bUpdateCoord = true;
-                mouseLast = mouse;
             }
 
 
