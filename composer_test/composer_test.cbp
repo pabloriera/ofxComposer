@@ -155,7 +155,7 @@
 			<Option virtualFolder="src/" />
 		</Unit>
 		<Unit filename="src/testApp.cpp">
-			<Option virtualFolder="addons/ofxComposer/src/" />
+			<Option virtualFolder="src/" />
 		</Unit>
 		<Unit filename="src/testApp.h">
 			<Option virtualFolder="src/" />
