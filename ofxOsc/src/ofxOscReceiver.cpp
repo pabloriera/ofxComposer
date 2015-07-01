@@ -25,7 +25,7 @@
  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-
+#define DEBUG
 #include "ofxOscReceiver.h"
 
 #ifndef TARGET_WIN32
@@ -33,6 +33,7 @@
 #endif
 #include <iostream>
 #include <assert.h>
+
 
 ofxOscReceiver::ofxOscReceiver()
 {
@@ -237,45 +238,34 @@ bool ofxOscReceiver::getParameter(ofAbstractParameter & parameter){
 	if ( messages.size() == 0 ) return false;
 	while(hasWaitingMessages()){
 		ofAbstractParameter * p = &parameter;
-
-        getNextMessage(&msg);
-        vector<string> address = ofSplitString(msg.getAddress(),"/",true);
-
-        for(int i=0;i<address.size();i++){
-//            cout << address[i] << " " << p->getEscapedName() << " " << p->type() << " " << msg.getArgType(0) << " " << typeid(ofParameter<float>).name()<<  endl;
-            if(p) {
-                if(address[i]==p->getEscapedName())
-                {
-                    if(p->type()==typeid(ofParameterGroup).name())
-                    {
-//                        cout << address.size() << endl;
-                        if(address.size()>i+1 ){
-//                            cout << address[i+1] <<  endl;
-                            if( static_cast<ofParameterGroup*>(p)->getPosition(address[i+1] )!=-1 )
-                            {
-//                                cout << address[i+1]+ " is" << endl;
-                                p = &static_cast<ofParameterGroup*>(p)->get(address[i+1]);
-                            }
-                            else
-                            {
-//                                cout << address[i+1]+ " is not" << endl;
-                                break;
-                            }
-
+		getNextMessage(&msg);
+		vector<string> address = ofSplitString(msg.getAddress(),"/",true);
+		for(unsigned int i=0;i<address.size();i++){
+			if(address[i]==p->getName()){
+				if(p->type()==typeid(ofParameterGroup).name()){
+					if(address.size()>=i+1){
+                        cout << p->getName() << endl;
+                        if( static_cast<ofParameterGroup*>(p)->getPosition(address[i+1])!=-1 )
+                        {
+                            p = &static_cast<ofParameterGroup*>(p)->get(address[i+1]);
 
                         }
-                    }else if(p->type()==typeid(ofParameter<int>).name() && msg.getArgType(0)==OFXOSC_TYPE_INT32){
-                        p->cast<int>() = msg.getArgAsInt32(0);
-                    }else if(p->type()==typeid(ofParameter<float>).name() ){
-                        p->cast<float>() = msg.getArgAsFloat(0);
-                    }else if(p->type()==typeid(ofParameter<bool>).name() && msg.getArgType(0)==OFXOSC_TYPE_INT32){
-                        p->cast<bool>() = msg.getArgAsInt32(0);
-                    }else if(msg.getArgType(0)==OFXOSC_TYPE_STRING){
-                        p->fromString(msg.getArgAsString(0));
-                    }
-                }
-            }
-        }
+
+
+                        else
+                            break;
+					}
+				}else if(p->type()==typeid(ofParameter<int>).name() && msg.getArgType(0)==OFXOSC_TYPE_INT32){
+					p->cast<int>() = msg.getArgAsInt32(0);
+				}else if(p->type()==typeid(ofParameter<float>).name() ){
+					p->cast<float>() = msg.getArgAsFloat(0);
+				}else if(p->type()==typeid(ofParameter<bool>).name() && msg.getArgType(0)==OFXOSC_TYPE_INT32){
+					p->cast<bool>() = msg.getArgAsInt32(0);
+				}else if(msg.getArgType(0)==OFXOSC_TYPE_STRING){
+					p->fromString(msg.getArgAsString(0));
+				}
+			}
+		}
 	}
 	return true;
 }

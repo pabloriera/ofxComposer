@@ -1,7 +1,26 @@
 <ofComposer>
 	<ofComposer/>
 <blur.fs>
-		<passes>20</passes>
+		<passes>7</passes>
 	</blur.fs>
 <group/>
+<LUT.fs>
+		<passes>1</passes>
+	</LUT.fs>
+<clone.fs>
+		<passes>1</passes>
+	</clone.fs>
+<mouse.fs>
+		<r>0</r>
+		<passes>1</passes>
+	</mouse.fs>
+	<grayscott.fs>
+		<diffU>0</diffU>
+		<diffV>0</diffV>
+		<F>0</F>
+		<K>0</K>
+		<dt>0.01</dt>
+		<uov>0</uov>
+		<passes>4</passes>
+	</grayscott.fs>
 </ofComposer>

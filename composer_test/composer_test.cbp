@@ -97,6 +97,18 @@
 		<Unit filename="../../ofxKinect/src/ofxKinect.h">
 			<Option virtualFolder="addons/ofxKinect/src" />
 		</Unit>
+		<Unit filename="../../ofxOsc/src/ofxOsc.h" />
+		<Unit filename="../../ofxOsc/src/ofxOscArg.h" />
+		<Unit filename="../../ofxOsc/src/ofxOscBundle.cpp" />
+		<Unit filename="../../ofxOsc/src/ofxOscBundle.h" />
+		<Unit filename="../../ofxOsc/src/ofxOscMessage.cpp" />
+		<Unit filename="../../ofxOsc/src/ofxOscMessage.h" />
+		<Unit filename="../../ofxOsc/src/ofxOscParameterSync.cpp" />
+		<Unit filename="../../ofxOsc/src/ofxOscParameterSync.h" />
+		<Unit filename="../../ofxOsc/src/ofxOscReceiver.cpp" />
+		<Unit filename="../../ofxOsc/src/ofxOscReceiver.h" />
+		<Unit filename="../../ofxOsc/src/ofxOscSender.cpp" />
+		<Unit filename="../../ofxOsc/src/ofxOscSender.h" />
 		<Unit filename="../../ofxXmlSettings/libs/tinyxml.cpp">
 			<Option virtualFolder="addons/ofxXmlSettings/libs" />
 		</Unit>

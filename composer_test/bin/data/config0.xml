@@ -8,23 +8,23 @@
     <id>0</id>
     <type>ofImage</type>
     <path>elpla.jpeg</path>
-    <visible>1</visible>
+    <visible>0</visible>
     <texture>
         <point>
-            <x>112.858032227</x>
-            <y>104.105560303</y>
+            <x>74.858032227</x>
+            <y>67.105560303</y>
         </point>
         <point>
-            <x>267.398376465</x>
-            <y>104.105590820</y>
+            <x>236.398376465</x>
+            <y>67.105560303</y>
         </point>
         <point>
-            <x>267.399047852</x>
-            <y>303.514099121</y>
+            <x>236.398376465</x>
+            <y>284.514343262</y>
         </point>
         <point>
-            <x>112.857254028</x>
-            <y>303.514343262</y>
+            <x>74.858032227</x>
+            <y>284.514343262</y>
         </point>
     </texture>
     <mask>
@@ -59,23 +59,23 @@
     <path>blur.fs</path>
     <visible>1</visible>
     <format>6408</format>
-    <passes>20</passes>
+    <passes>7</passes>
     <texture>
         <point>
-            <x>635.500000000</x>
-            <y>93.000000000</y>
+            <x>548.540893555</x>
+            <y>36.031784058</y>
         </point>
         <point>
-            <x>955.500000000</x>
-            <y>93.000000000</y>
+            <x>919.445007324</x>
+            <y>36.031082153</y>
         </point>
         <point>
-            <x>955.500000000</x>
-            <y>333.000000000</y>
+            <x>919.445556641</x>
+            <y>314.209533691</y>
         </point>
         <point>
-            <x>635.500000000</x>
-            <y>333.000000000</y>
+            <x>548.541076660</x>
+            <y>314.209503174</y>
         </point>
     </texture>
     <mask>
@@ -104,25 +104,25 @@
     <id>2</id>
     <type>ofShader</type>
     <path>LUT.fs</path>
-    <visible>1</visible>
+    <visible>0</visible>
     <format>6408</format>
     <passes>1</passes>
     <texture>
         <point>
-            <x>415.669677734</x>
-            <y>161.253112793</y>
+            <x>294.669677734</x>
+            <y>136.253112793</y>
         </point>
         <point>
-            <x>562.602355957</x>
-            <y>161.252441406</y>
+            <x>441.602355957</x>
+            <y>136.253112793</y>
         </point>
         <point>
-            <x>562.602600098</x>
-            <y>271.452026367</y>
+            <x>441.602355957</x>
+            <y>246.451721191</y>
         </point>
         <point>
-            <x>415.670043945</x>
-            <y>271.451721191</y>
+            <x>294.669677734</x>
+            <y>246.451721191</y>
         </point>
     </texture>
     <mask>
@@ -155,23 +155,23 @@
     <id>3</id>
     <type>ofTexture</type>
     <path>Sutro.cube</path>
-    <visible>1</visible>
+    <visible>0</visible>
     <texture>
         <point>
-            <x>32.500030518</x>
-            <y>441.000000000</y>
+            <x>-22.499969482</x>
+            <y>378.000000000</y>
         </point>
         <point>
-            <x>544.500000000</x>
-            <y>441.000000000</y>
+            <x>489.500000000</x>
+            <y>378.000000000</y>
         </point>
         <point>
-            <x>544.499938965</x>
-            <y>457.000000000</y>
+            <x>489.500000000</x>
+            <y>394.000000000</y>
         </point>
         <point>
-            <x>32.500000000</x>
-            <y>457.000000000</y>
+            <x>-22.499969482</x>
+            <y>394.000000000</y>
         </point>
     </texture>
     <mask>
@@ -198,5 +198,56 @@
             <to>2</to>
             <tex>1</tex>
         </dot>
+        <dot>
+            <to>5</to>
+            <tex>0</tex>
+        </dot>
+    </out>
+</surface>
+<surface>
+    <id>5</id>
+    <type>ofShader</type>
+    <path>clone.fs</path>
+    <visible>0</visible>
+    <format>6408</format>
+    <passes>1</passes>
+    <texture>
+        <point>
+            <x>529.739929199</x>
+            <y>432.176147461</y>
+        </point>
+        <point>
+            <x>954.073608398</x>
+            <y>431.756164551</y>
+        </point>
+        <point>
+            <x>954.386474609</x>
+            <y>750.007690430</y>
+        </point>
+        <point>
+            <x>530.051879883</x>
+            <y>750.420776367</y>
+        </point>
+    </texture>
+    <mask>
+        <point>
+            <x>0.000000000</x>
+            <y>0.000000000</y>
+        </point>
+        <point>
+            <x>1.000000000</x>
+            <y>0.000000000</y>
+        </point>
+        <point>
+            <x>1.000000000</x>
+            <y>1.000000000</y>
+        </point>
+        <point>
+            <x>0.000000000</x>
+            <y>1.000000000</y>
+        </point>
+    </mask>
+    <out>
+        <active>1</active>
     </out>
 </surface>
