@@ -1,0 +1,75 @@
+#N canvas 28 286 976 475 10;
+#X declare -lib mrpeach;
+#X obj 27 18 ctlin 0;
+#X obj 27 46 maxlib/scale 0 127 0 0.3 0;
+#X obj 27 128 s osc_message;
+#X obj 22 284 r osc_message;
+#X obj 22 251 import mrpeach;
+#X obj 22 321 packOSC;
+#X obj 22 352 udpsend;
+#X obj 22 376 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 27 75 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0.103937 256;
+#X msg 95 308 disconnect;
+#X msg 95 329 connect 127.0.0.1 6666;
+#X msg 27 99 /ofComposer/grayscott.fs/diffU \$1;
+#X obj 249 45 maxlib/scale 0 127 0 0.3 0;
+#X obj 249 127 s osc_message;
+#X obj 249 74 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0.193701 256;
+#X obj 249 17 ctlin 1;
+#X msg 249 98 /ofComposer/grayscott.fs/diffV \$1;
+#X obj 477 129 s osc_message;
+#X obj 477 76 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0.0138583 256;
+#X obj 477 19 ctlin 2;
+#X obj 477 47 maxlib/scale 0 127 0 0.08 0;
+#X obj 700 131 s osc_message;
+#X obj 700 78 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0.0453543 256;
+#X obj 700 49 maxlib/scale 0 127 0 0.12 0;
+#X msg 700 102 /ofComposer/grayscott.fs/K \$1;
+#X msg 477 100 /ofComposer/grayscott.fs/F \$1;
+#X obj 700 21 ctlin 3;
+#X obj 249 270 s osc_message;
+#X obj 249 217 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 1.03937 256;
+#X obj 249 160 ctlin 4;
+#X obj 249 188 maxlib/scale 0 127 0 1.5 0;
+#X msg 249 241 /ofComposer/grayscott.fs/dt \$1;
+#X obj 478 269 s osc_message;
+#X obj 478 216 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 1 256;
+#X obj 478 187 maxlib/scale 0 127 0 1 0;
+#X msg 478 240 /ofComposer/grayscott.fs/uov \$1;
+#X obj 478 159 ctlin 5;
+#X connect 0 0 1 0;
+#X connect 1 0 8 0;
+#X connect 3 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 8 0 11 0;
+#X connect 9 0 6 0;
+#X connect 10 0 6 0;
+#X connect 11 0 2 0;
+#X connect 12 0 14 0;
+#X connect 14 0 16 0;
+#X connect 15 0 12 0;
+#X connect 16 0 13 0;
+#X connect 18 0 25 0;
+#X connect 19 0 20 0;
+#X connect 20 0 18 0;
+#X connect 22 0 24 0;
+#X connect 23 0 22 0;
+#X connect 24 0 21 0;
+#X connect 25 0 17 0;
+#X connect 26 0 23 0;
+#X connect 28 0 31 0;
+#X connect 29 0 30 0;
+#X connect 30 0 28 0;
+#X connect 31 0 27 0;
+#X connect 33 0 35 0;
+#X connect 34 0 33 0;
+#X connect 35 0 32 0;
+#X connect 36 0 34 0;
