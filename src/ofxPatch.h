@@ -92,6 +92,8 @@ public:
     ofParameterGroup baseParameters;
 
     float speed;
+    ofxShaderObj    *shader;
+
 private:
     void            doCornersToPosSize();
     void            doSurfaceToScreenMatrix();      // Update the SurfaceToScreen transformation matrix
@@ -114,7 +116,7 @@ private:
     ofImage         *image;
     ofVideoPlayer   *videoPlayer;
     ofVideoGrabber  *videoGrabber;
-    ofxShaderObj    *shader;
+
     ofTexture       *texture;
     ofxKinect       *kinect;
     // Mask variables

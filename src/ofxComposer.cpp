@@ -83,13 +83,12 @@ ofxComposer::ofxComposer(){
 
     parameters.setName("ofComposer");
     gui.setup(parameters);
-    sync.setup((ofParameterGroup&)gui.getParameter(),6666,"localhost",6667);
+//    sync.setup((ofParameterGroup&)gui.getParameter(),6666,"localhost",6667);
 }
 
 
 void ofxComposer::addParameters()
 {
-    gui.saveToFile("settings.xml");
     parameters.clear();
     for(map<int,ofxPatch*>::iterator it = patches.begin(); it != patches.end(); it++ ){
         if(it->second->getType()=="ofShader")
@@ -463,10 +462,14 @@ void ofxComposer::_keyPressed(ofKeyEventArgs &e){
 
     } else if(e.key == 'g') {
 
-        addParameters();
         bGUI=!bGUI;
+        if(bGUI)
+            addParameters();
 
     } else if(e.key == 's') {
+        gui.saveToFile("settings.xml");
+
+    } else if(e.key == OF_KEY_TAB) {
         bPlay = !bPlay;
 
     } else if(e.key >=  48 && e.key <= 59 ) {

@@ -23,4 +23,17 @@
 		<uov>0</uov>
 		<passes>4</passes>
 	</grayscott.fs>
+<test.frag>
+		<passes>1</passes>
+		<sr>1</sr>
+		<kr>1</kr>
+		<h2>0</h2>
+	</test.frag>
+<nlm.frag>
+		<passes>2</passes>
+		<sr>4.41837</sr>
+		<kr>2.14796</kr>
+		<h2>1.68367</h2>
+	<h>1.375</h>
+	</nlm.frag>
 </ofComposer>

@@ -34,8 +34,8 @@ ofxPatch::ofxPatch(){
     texture     = NULL;
     kinect      = NULL;
 
-    width       = 640;
-    height      = 480;
+    width       = 512;
+    height      = 512;
     texOpacity  = 1.0;
     maskOpacity = 1.0;
     speed       =1;
@@ -132,7 +132,7 @@ void ofxPatch::doParameters()
  {
     patchParameters.clear();
     patchParameters.setName(name);
-    cout << name << endl;
+//    cout << name << endl;
     for(int i =0;i<shader->unis_params.size();i++)
         patchParameters.add( *(shader->unis_params[i]) );
 
