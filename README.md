@@ -11,7 +11,7 @@ This versión has been improved with several stuff.
 
 ## Installation
 
-* Download [openFrameworks](openframeworks.cc) and install its dependencies (script folder)
+* Download [openFrameworks](openframeworks.cc) (tested on v0.8.4 only) and install its dependencies (script folder)
 * Clone ofxComposer into addons folder
 * Overwrite the openFrameworks/addons/ofxGUI and ofxOsc with the ones in the ofxComposer
 * Build the composer_test project and run
